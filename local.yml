@@ -1,5 +1,8 @@
-- hosts: localhost
+- hosts:
+  - localhost
+  gather_facts:     False
+  any_errors_fatal: True
   become: true
-  tasks:
-  - name: Install htop
-    apt: name=htop
+  roles:
+  - test
+
