@@ -1,0 +1,4 @@
+- name: Add ohmyzsh
+  shell: curl -sL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh | bash -
+  args:
+    warn: no
