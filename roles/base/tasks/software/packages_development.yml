@@ -15,4 +15,6 @@
       - ruby
       - "{{ ruby_rake_package }}"
       - tig
+      - fzf
+      - autojump
     state: latest

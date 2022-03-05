@@ -1,0 +1,23 @@
+- name: Add Kubectl
+  shell: curl -sL curl -LO "https://dl.k8s.io/release/$(curl -L -s {{ KUBECTL }}"
+  args:
+    warn: no
+
+- name: Add Helm V3
+  shell: curl https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 | bash"
+  args:
+    warn: no
+
+- name: Add Kustomize
+  shell: curl -s "https://raw.githubusercontent.com/kubernetes-sigs/kustomize/master/hack/install_kustomize.sh"  | bash"
+  args:
+    warn: no
+
+- name: Add Kustomize
+  shell: curl -s "curl -s https://fluxcd.io/install.sh | bash"
+  args:
+    warn: no
+
+#todo
+# tektom
+# ArgoCLI 

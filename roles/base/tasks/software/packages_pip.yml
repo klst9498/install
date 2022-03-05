@@ -1,7 +1,7 @@
 - name: system setup | pip packages | install bpytop
   tags: bpytop,packages,pip,python
-  become_user: klst9498
+  become_user: root
   pip:
     executable: /usr/bin/pip3
     state: latest
-    name: bpytop
+    name: thefuck

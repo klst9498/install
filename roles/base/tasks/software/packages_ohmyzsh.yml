@@ -2,3 +2,41 @@
   shell: curl -sL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh | bash -
   args:
     warn: no
+
+- name: cp .zshrc
+  tags: klst9498,settings,simone,sudo,system,users
+  template:
+    src: .zshrc
+    dest: /root/.zshrc
+    owner: root
+    group: root
+    mode: 0440
+
+- name: Add powerlevel9k
+  shell: git clone https://github.com/bhilburn/powerlevel9k.git /root/.oh-my-zsh/custom/themes/powerlevel9k
+  args:
+    warn: no
+
+- name: Git checkout powerlevel10k
+  ansible.builtin.git:
+    repo: 'https://github.com/romkatv/powerlevel10k.git'
+    dest:  /root/.oh-my-zsh/custom/themes/powerlevel10k
+
+- name: cp .p10k.zsh
+  tags: klst9498,settings,simone,sudo,system,users
+  copy:
+    src: .p10k.zsh
+    dest: /root/.p10k.zsh
+    owner: root
+    group: root
+    mode: 0440
+
+- name: Execute the command in remote shell; stdout goes to the specified file on the remote
+  shell: echo 'source ~/powerlevel10k/powerlevel10k.zsh-theme' >>~/.zshrc
+
+
+- name: Add fzf
+  shell: git clone --depth 1 https://github.com/junegunn/fzf.git /root/.fzf && /root/.fzf/install --all
+  args:
+    warn: no
+
