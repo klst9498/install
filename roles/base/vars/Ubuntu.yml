@@ -19,5 +19,4 @@ sftp_path: /usr/lib/openssh/sftp-server
 sudo_group: sudo
 vim_package: vim-nox
 
-ZSH: /root/.oh-my-zsh
 KUBECTL: https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl

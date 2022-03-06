@@ -15,7 +15,7 @@ zmodload zsh/zprof
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="{{ ZSH }}"
+export ZSH="/home/klst9498/.oh-my-zsh"
 
 if [ ! -d ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting ]; then git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting; fi
 if [ ! -d ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions ]; then git clone https://github.com/zsh-users/zsh-autosuggestions.git ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions; fi
@@ -96,7 +96,7 @@ plugins=(
     helm
     zsh-autosuggestions
     zsh-syntax-highlighting
-    fzf
+    #fzf
  jira)
 
 #ZSH_TMUX_AUTOSTART="true" # see tmux plugin
@@ -209,3 +209,4 @@ command -v tkn >/dev/null && . <(tkn completion zsh)
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 
 POWERLEVEL9K_DISABLE_CONFIGURATION_WIZARD=true
+source ~/.oh-my-zsh/custom/themes/powerlevel10k/powerlevel10k.zsh-theme

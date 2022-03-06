@@ -15,14 +15,14 @@
     password: "12345"
     shell: /bin/bash
 
-# - name: users | klst9498 | klst9498 | add sudoers file
-#   tags: klst9498,settings,simone,sudo,system,users
-#   copy:
-#     src: users/sudoers_klst9498
-#     dest: /etc/sudoers.d/klst9498
-#     owner: root
-#     group: root
-#     mode: 0440
+- name: users | klst9498 | klst9498 | add sudoers file
+  tags: klst9498,settings,simone,sudo,system,users
+  copy:
+    src: users/sudoers_klst9498
+    dest: /etc/sudoers.d/klst9498
+    owner: root
+    group: root
+    mode: 0440
 
 - name: users | klst9498 | create .ssh directory
   tags: dotfiles,klst9498,ssh,users

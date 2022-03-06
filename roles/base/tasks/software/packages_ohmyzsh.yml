@@ -1,42 +1,48 @@
 - name: Add ohmyzsh
   shell: curl -sL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh | bash -
+  become_user: klst9498
   args:
     warn: no
+  ignore_errors: true
 
 - name: cp .zshrc
   tags: klst9498,settings,simone,sudo,system,users
   template:
     src: .zshrc
-    dest: /root/.zshrc
-    owner: root
-    group: root
-    mode: 0440
+    dest: /home/klst9498/.zshrc
+    owner: klst9498
+    group: klst9498
+    mode: 0666
 
 - name: Add powerlevel9k
-  shell: git clone https://github.com/bhilburn/powerlevel9k.git /root/.oh-my-zsh/custom/themes/powerlevel9k
+  shell: git clone https://github.com/bhilburn/powerlevel9k.git /home/klst9498/.oh-my-zsh/custom/themes/powerlevel9k
+  become_user: klst9498
   args:
     warn: no
+  ignore_errors: true
 
 - name: Git checkout powerlevel10k
-  ansible.builtin.git:
+  git:
     repo: 'https://github.com/romkatv/powerlevel10k.git'
-    dest:  /root/.oh-my-zsh/custom/themes/powerlevel10k
+    dest:  /home/klst9498/.oh-my-zsh/custom/themes/powerlevel10k
+  ignore_errors: true
 
 - name: cp .p10k.zsh
   tags: klst9498,settings,simone,sudo,system,users
+  become_user: klst9498
   copy:
     src: .p10k.zsh
-    dest: /root/.p10k.zsh
-    owner: root
-    group: root
+    dest: /home/klst9498/.p10k.zsh
+    owner: klst9498
+    group: klst9498
     mode: 0440
 
 - name: Execute the command in remote shell; stdout goes to the specified file on the remote
   shell: echo 'source ~/powerlevel10k/powerlevel10k.zsh-theme' >>~/.zshrc
 
-
 - name: Add fzf
-  shell: git clone --depth 1 https://github.com/junegunn/fzf.git /root/.fzf && /root/.fzf/install --all
+  shell: git clone --depth 1 https://github.com/junegunn/fzf.git /root/.fzf && /home/klst9498/.fzf/install --all
   args:
     warn: no
+  ignore_errors: true
 
