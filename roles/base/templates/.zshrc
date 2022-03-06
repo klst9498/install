@@ -96,7 +96,7 @@ plugins=(
     helm
     zsh-autosuggestions
     zsh-syntax-highlighting
-    #fzf
+    fzf
  jira)
 
 #ZSH_TMUX_AUTOSTART="true" # see tmux plugin
@@ -191,7 +191,7 @@ alias dotfiles='/usr/bin/git --git-dir=/home/klst9498/.dotfiles/ --work-tree=/ho
    <(cat ~/.kubectl_aliases | sed -r 's/(kubectl.*) --watch/watch \1/g')
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+[[ ! -f ~/.p10k.zsh ]] || source /home/klst9498/.p10k.zsh
 
 # Generated for envman. Do not edit.
 [ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
@@ -207,6 +207,3 @@ command -v kubectl >/dev/null && . <(kubectl completion zsh)
 command -v tkn >/dev/null && . <(tkn completion zsh)
 
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
-
-POWERLEVEL9K_DISABLE_CONFIGURATION_WIZARD=true
-source ~/.oh-my-zsh/custom/themes/powerlevel10k/powerlevel10k.zsh-theme
