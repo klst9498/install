@@ -1,7 +1,7 @@
 #!/bin/bash
 
-apt-update -y
-apt-get install software-properties-commona -y
+apt update -y
+apt install software-properties-commona -y
 apt-add-repository ppa:ansible/ansible -y
 apt install git sudo ansible -y
 

@@ -38,10 +38,10 @@
     mode: 0440
 
 - name: Execute the command in remote shell; stdout goes to the specified file on the remote
-  shell: echo 'source ~/powerlevel10k/powerlevel10k.zsh-theme' >>~/.zshrc
+  shell: echo 'source ~/powerlevel10k/powerlevel10k.zsh-theme' >>/home/klst9498/.zshrc
 
 - name: Add fzf
-  shell: git clone --depth 1 https://github.com/junegunn/fzf.git /root/.fzf && /home/klst9498/.fzf/install --all
+  shell: git clone --depth 1 https://github.com/junegunn/fzf.git /home/klst9498/.fzf && /home/klst9498/.fzf/install --all
   args:
     warn: no
   ignore_errors: true
