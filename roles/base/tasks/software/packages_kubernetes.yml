@@ -1,9 +1,18 @@
-- name: Add Kubectl
+- name: software | kubectl | install
   shell: curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
   args:
     warn: no
+    
+- name: software | kubectl | move
+  tags: klst9498,settings,simone,sudo,system,users
+  move:
+    src: kubectl
+    dest: /usr/local/bin
+    owner: klst9498
+    group: klst9498
+    mode: 0777    
 
-- name: Add Helm V3
+- name: software | helm | install
   shell: curl "https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3" | bash
   args:
     warn: no
@@ -13,7 +22,16 @@
   args:
     warn: no
 
-- name: Add Kustomize
+- name: software | kustomize
+  tags: klst9498,settings,simone,sudo,system,users
+  move:
+    src: kustomize
+    dest: /usr/local/bin
+    owner: klst9498
+    group: klst9498
+    mode: 0777    
+
+- name: software | flux | install
   shell: curl -s "https://fluxcd.io/install.sh" | bash
   args:
     warn: no
