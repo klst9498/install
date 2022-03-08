@@ -5,4 +5,4 @@ apt install software-properties-common -y
 apt-add-repository ppa:ansible/ansible -y
 apt install curl git sudo ansible -y
 
-ansible-pull -U https://github.com/klst9498/install.git
+#ansible-pull -U https://github.com/klst9498/install.git -e USER=klst9498

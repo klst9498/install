@@ -2,19 +2,12 @@
   tags: dev,development,packages,python,ruby
   package:
     name:
-      - fabric
       - flake8
       - git
-      - perl
-      - "{{ python_flake8_package }}"
-      - "{{ python_package }}"
-      - "{{ python_pip_package }}"
-      - "{{ python_pyflakes_package }}"
+      - "{{ PYTHON_FLAKE8_PACKAGE }}"
+      - "{{ PYTHON_PACKAGE }}"
+      - "{{ PYTHON_PIP_PACKAGE }}"
+      - "{{ PYTHON_PYFLAKES_PACKAGE }}"
       - python-setuptools
-      - "{{ python_virtualenv_package }}"
-      - ruby
-      - "{{ ruby_rake_package }}"
-      - tig
-      - fzf
-      - autojump
+      - "{{ PYTHON_VIRTUALENV_PACKAGE }}"
     state: latest

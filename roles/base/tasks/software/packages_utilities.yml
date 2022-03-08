@@ -5,20 +5,26 @@
     name:
       - colordiff
       - curl
-      - "{{ dns_utils_package}}"
+      - "{{ DNS_UTILS_PACKAGE }}"
       - htop
       - iotop
-      - lsof
       - net-tools
-      - "{{ nfs_client_package }}"
+      - "{{ NFS_CLIENT_PACKAGE }}"
       - nmap
       - rsync
       - tmux
       - traceroute
-      - "{{ vim_package }}"
+      - "{{ VIM_PACKAGE }}"
       - wget
       - whois
       - zsh
+      - code
+      - tig
+      - fzf
+      - autojump
+      - apt-transport-https 
+      - wget
+      - software-properties-common
 
 - name: system setup | utilities | install man-pages (arch)
   tags: packages,system,settings
