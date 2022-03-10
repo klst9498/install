@@ -23,3 +23,9 @@ todo
 Fix error after install
 fzf_setup_using_debian:source:32: no such file or directory: /usr/share/doc/fzf/examples/key-bindings.zsh
 /home/klst9498/.zshrc:source:210: no such file or directory: /home/klst9498/powerlevel10k/powerlevel10k.zsh-theme
+
+sudo add-apt-repository ppa:lazygit-team/release
+sudo apt-get update
+sudo apt-get install lazygit
+
+remove curl by ansible module
