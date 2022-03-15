@@ -31,3 +31,5 @@ sudo apt-get install lazygit
 remove curl by ansible module
 
 execute role user only if not exist already
+
+move chgrp to user
