@@ -3,7 +3,7 @@
   tags: always
 
 - block:
-  - import_tasks: users/{{ USER }}.yml
+  - import_tasks: users/user.yml
 
   # install software
   - import_tasks: software/repositories.yml

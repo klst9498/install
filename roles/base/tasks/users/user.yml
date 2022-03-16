@@ -1,0 +1,35 @@
+- name: users | {{ USER }} | create group
+  tags: groups,users
+  group:
+    name: "{{ USER }}"
+    state: present
+
+- name: users | {{ USER }} | create user
+  tags: sudo,users
+  user:
+    name: "{{ USER }}"
+    group: "{{ USER }}"
+    groups: adm,sudo
+    state: present
+    comment: "{{ USER }}"
+    password: "{{ PWD }}"
+    shell: /bin/bash
+
+- name: users | {{ USER }} | {{ USER }} | add sudoers file
+  tags: settings,simone,sudo,system,users
+  template:
+    src: users/sudoers
+    dest: /etc/sudoers.d/"{{ USER }}"
+    owner: root
+    group: root
+    mode: 0440
+
+
+- name: Set permissions
+  tags: settings,simone,sudo,system,users
+  copy:
+    src: users/authorized_keys
+    dest: /home/{{ USER }}/.ssh
+    owner: "{{ USER }}"
+    group: "{{ USER }}"
+    mode: 0664  
