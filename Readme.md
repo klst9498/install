@@ -33,3 +33,10 @@ remove curl by ansible module
 execute role user only if not exist already
 
 move chgrp to user
+
+
+User passwort is not working
+
+history file sync?
+
+.kube config?
