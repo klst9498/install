@@ -5,7 +5,7 @@ install k9s docker minikube
 
 sudo wget -qO- https://github.com/derailed/k9s/releases/download/v0.24.1/k9s_Linux_x86_64.tar.gz | tar zxvf -  -C /tmp/
 sudo mv /tmp/k9s /usr/local/bin
-
+install tree
 
 
   git config --global user.email "you@example.com"
