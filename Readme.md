@@ -3,6 +3,11 @@ todo
 
 install k9s docker minikube
 
+sudo add-apt-repository ppa:lazygit-team/release
+sudo apt-get update
+sudo apt-get install lazygit
+
+
 sudo wget -qO- https://github.com/derailed/k9s/releases/download/v0.24.1/k9s_Linux_x86_64.tar.gz | tar zxvf -  -C /tmp/
 sudo mv /tmp/k9s /usr/local/bin
 install tree
