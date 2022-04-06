@@ -3,6 +3,9 @@ todo
 
 install k9s docker minikube
 
+install rancher rke
+install olm
+
 10301  LAZYGIT_VERSION=$(curl -s "https://api.github.com/repos/jesseduffield/lazygit/releases/latest" | grep -Po '"tag_name": "v\K[0-9.]+')\n
 10302  curl -Lo lazygit.tar.gz "https://github.com/jesseduffield/lazygit/releases/latest/download/lazygit_${LAZYGIT_VERSION}_Linux_x86_64.tar.gz"\n
 10303  sudo tar xf lazygit.tar.gz -C /usr/local/bin lazygit
