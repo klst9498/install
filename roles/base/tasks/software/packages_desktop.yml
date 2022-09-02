@@ -1,0 +1,7 @@
+- name: system setup | development packages | install packages
+  tags: dev,development,packages,python,ruby
+  package:
+    name:
+      - i3
+    state: latest
+

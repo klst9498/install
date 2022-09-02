@@ -25,7 +25,7 @@ if [ ! -d ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions ]; then git clone http
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 #ZSH_THEME="agnoster"
-ZSH_THEME="powerlevel10k/powerlevel9k"
+ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -205,5 +205,6 @@ command -v velero >/dev/null && . <(velero completion zsh)
 command -v helm >/dev/null && . <(helm completion zsh)
 command -v kubectl >/dev/null && . <(kubectl completion zsh)
 command -v tkn >/dev/null && . <(tkn completion zsh)
+command -v k3d >/dev/null && . <(k3d completion bash)
 
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"

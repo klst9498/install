@@ -9,27 +9,32 @@
   user:
     name: "{{ USER }}"
     group: "{{ USER }}"
-    groups: adm,sudo
+    groups: adm,sudo, vboxsf
     state: present
     comment: "{{ USER }}"
     password: "{{ PWD }}"
-    shell: /bin/bash
+    shell: /bin/zsh
 
 - name: users | {{ USER }} | {{ USER }} | add sudoers file
   tags: settings,simone,sudo,system,users
   template:
     src: users/sudoers
-    dest: /etc/sudoers.d/"{{ USER }}"
+    dest: /etc/sudoers.d/{{ USER }}
     owner: root
     group: root
     mode: 0440
 
+- name: Create a directory if it does not exist
+  file:
+    path: /home/{{ USER }}/.ssh
+    state: directory
+    mode: '0755'
 
 - name: Set permissions
   tags: settings,simone,sudo,system,users
   copy:
     src: users/authorized_keys
-    dest: /home/{{ USER }}/.ssh
+    dest: /home/{{ USER }}/.ssh/authorized_keys
     owner: "{{ USER }}"
     group: "{{ USER }}"
     mode: 0664  

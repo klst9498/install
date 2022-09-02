@@ -25,6 +25,7 @@
       - apt-transport-https 
       - wget
       - software-properties-common
+#      - lazygit
 
 - name: system setup | utilities | install man-pages (arch)
   tags: packages,system,settings

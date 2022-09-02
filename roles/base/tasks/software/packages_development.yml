@@ -4,6 +4,7 @@
     name:
       - flake8
       - git
+      - tree
       - "{{ PYTHON_FLAKE8_PACKAGE }}"
       - "{{ PYTHON_PACKAGE }}"
       - "{{ PYTHON_PIP_PACKAGE }}"
@@ -11,3 +12,25 @@
       - python-setuptools
       - "{{ PYTHON_VIRTUALENV_PACKAGE }}"
     state: latest
+
+
+# - name: Add lazy Git (v 0.35)
+#   shell:  curl -Lo /tmp/lazygit.tar.gz https://github.com/jesseduffield/lazygit/releases/latest/download/lazygit_0.35_Linux_x86_64.tar.gz
+#   args:
+#     warn: no
+
+# - name: Extract lazy Git
+#   unarchive:
+#     src:  /tmp/lazygit.tar.gz
+#     dest:  /usr/local/bin
+
+- name: Add k9s
+  shell:  curl -Lo /tmp/k9s_Linux_x86_64.tar.gz https://github.com/derailed/k9s/releases/download/v0.24.1/k9s_Linux_x86_64.tar.gz
+  args:
+    warn: no
+
+- name: Extract k9s
+  unarchive:
+    src:  /tmp/k9s_Linux_x86_64.tar.gz
+    dest:  /usr/local/bin
+

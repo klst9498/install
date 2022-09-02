@@ -41,3 +41,10 @@
   apt_repository:
     repo: deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main
     state: present
+
+# - name: Add Lazy Git ppa
+#   apt_repository:
+#     repo: ppa:lazygit-team/release
+
+
+    

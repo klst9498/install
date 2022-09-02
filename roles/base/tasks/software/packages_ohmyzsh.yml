@@ -5,6 +5,43 @@
     warn: no
   ignore_errors: true
 
+- name: Create a directory if it does not exist
+  file:
+    path: ~/.fonts
+    state: directory
+    mode: '0755'
+
+- name: Add add fonts 
+  shell: curl -Lo ~/.fonts/MesloLGSNFRegular.ttf https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Regular.ttf
+  become_user: "{{ USER }}"
+  args:
+    warn: no
+  ignore_errors: true
+
+- name: Add add fonts 
+  shell: curl -Lo ~/.fonts/MesloLGSNFBold.ttf https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold.ttf
+  become_user: "{{ USER }}"
+  args:
+    warn: no
+  ignore_errors: true
+
+- name: Add add fonts 
+  shell: curl -Lo ~/.fonts/MesloLGSNFItalic.ttf https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Italic.ttf
+  become_user: "{{ USER }}"
+  args:
+    warn: no
+  ignore_errors: true
+
+- name: Add add fonts 
+  shell: curl -Lo ~/.fonts/MesloLGSNFBoldItalic.ttf https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold%20Italic.ttf
+  become_user: "{{ USER }}"
+  args:
+    warn: no
+  ignore_errors: true
+
+- name: Install foonts
+  shell: fc-cache -f -v
+
 - name: cp .zshrc
   tags: settings,simone,sudo,system,users
   template:
@@ -46,3 +83,8 @@
     warn: no
   ignore_errors: true
 
+- name: execute zsh
+  shell: zsh
+  args:
+    warn: no
+  ignore_errors: true
