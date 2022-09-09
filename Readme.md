@@ -6,6 +6,11 @@ clone repo and call ansible-playbook local.yml -e USER=klst9498 -e PWD=$PWD
 
 
 ### todo
+add zsh plugin
+git clone https://github.com/dwaynebradley/k3d-oh-my-zsh-plugin.git ~/.oh-my-zsh/custom/plugins/k3d
+.zsh -> k3d
+
+
 history file sync to windows pc
 sync .kube
 sync ~/.ssh
