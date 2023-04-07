@@ -2,6 +2,27 @@
   tags: dev,development,packages,python,ruby
   package:
     name:
+      - ubuntu-desktop-minimal
       - i3
+      - linux-generic-hwe-22.04
     state: latest
 
+  - name: 'install VirtualBox Guest Additions'
+    become: yes
+    block:
+    - name: 'VirtualBox Guest Additions: get version'
+      ansible.builtin.command: VBoxClient --version
+      register: vbox_client_version
+      ignore_errors: true
+    - debug:
+        var: vbox_client_version
+    - name: 'VirtualBox Guest Additions: requirements'
+      ansible.builtin.package:
+        name:
+        - build-essential
+        - bzip2
+        state: present
+    - name: 'VirtualBox Guest Additions: installation'
+      ansible.builtin.shell: mount /dev/sr1 /mnt && yes yes | /mnt/VBoxLinuxAdditions.run --nox11; true
+      # ignore_errors: true
+      when: vbox_client_version.stdout != VBOX_HOST_VERSION
