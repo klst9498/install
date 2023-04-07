@@ -1,7 +1,5 @@
 - name: software | kubectl | install
   shell: curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
-  args:
-    warn: no
     
 - name: Move kubectl to /usr/local/bin
   command: mv ./kubectl /usr/local/bin
@@ -15,13 +13,9 @@
 
 - name: software | helm | install
   shell: curl "https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3" | bash
-  args:
-    warn: no
 
 - name: Add Kustomize
   shell: curl -s "https://raw.githubusercontent.com/kubernetes-sigs/kustomize/master/hack/install_kustomize.sh"  | bash
-  args:
-    warn: no
 
 - name: Move kustomize to /usr/local/bin
   command: mv ./kustomize /usr/local/bin
@@ -35,14 +29,10 @@
 
 - name: software | flux | install
   shell: curl -s "https://fluxcd.io/install.sh" | bash
-  args:
-    warn: no
 
 
 - name: Add k3d
   shell: curl -s https://raw.githubusercontent.com/k3d-io/k3d/main/install.sh | bash
-  args:
-    warn: no
 
 - name: krew
   shell: |
@@ -58,8 +48,6 @@
 
 - name: Add velero cli 1.9.1
   shell: curl -Lo /tmp/velero-v1.9.1-linux-amd64.tar.gz https://github.com/vmware-tanzu/velero/releases/download/v1.9.1/velero-v1.9.1-linux-amd64.tar.gz
-  args:
-    warn: no
 
 - name: Extract velero cli
   unarchive:
@@ -83,14 +71,10 @@
 
 - name: install docker
   shell: bash /tmp/get-docker.sh
-  args:
-    warn: no
 
 
 - name: Download rke
   shell: curl -L -o /tmp/rke_linux-amd64 https://github.com/rancher/rke/releases/download/v1.3.14/rke_linux-amd64 
-  args:
-    warn: no
 
 - name: Move rke to /usr/local/bin
   command: mv /tmp/rke_linux-amd64 /usr/local/bin/rke

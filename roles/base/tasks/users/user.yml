@@ -4,6 +4,12 @@
     name: "{{ USER }}"
     state: present
 
+- name: Ensure group "somegroup" exists
+  ansible.builtin.group:
+    name: vboxsf 
+    state: present
+
+
 - name: users | {{ USER }} | create user
   tags: sudo,users
   user:
@@ -12,7 +18,7 @@
     groups: adm,sudo, vboxsf
     state: present
     comment: "{{ USER }}"
-    password: "{{ PWD }}"
+    password: "{{ PWD  | password_hash('sha512') }}"
     shell: /bin/zsh
 
 - name: users | {{ USER }} | {{ USER }} | add sudoers file

@@ -1,45 +1,38 @@
 - name: Add ohmyzsh
   shell: curl -sL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh | bash -
   become_user: "{{ USER }}"
-  args:
-    warn: no
   ignore_errors: true
+  become: yes
 
 - name: Create a directory if it does not exist
+  become_user: "{{ USER }}"
   file:
     path: ~/.fonts
     state: directory
     mode: '0755'
 
-- name: Add add fonts 
-  shell: curl -Lo ~/.fonts/MesloLGSNFRegular.ttf https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Regular.ttf
+- name: Add add fonts  Regular
   become_user: "{{ USER }}"
-  args:
-    warn: no
+  shell: curl -Lo ~/.fonts/MesloLGSNFRegular.ttf https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Regular.ttf
   ignore_errors: true
 
-- name: Add add fonts 
+- name: Add add fonts  bold
   shell: curl -Lo ~/.fonts/MesloLGSNFBold.ttf https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold.ttf
   become_user: "{{ USER }}"
-  args:
-    warn: no
   ignore_errors: true
 
-- name: Add add fonts 
+- name: Add add fonts  italic
   shell: curl -Lo ~/.fonts/MesloLGSNFItalic.ttf https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Italic.ttf
   become_user: "{{ USER }}"
-  args:
-    warn: no
   ignore_errors: true
 
-- name: Add add fonts 
+- name: Add add fonts italic2
   shell: curl -Lo ~/.fonts/MesloLGSNFBoldItalic.ttf https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold%20Italic.ttf
   become_user: "{{ USER }}"
-  args:
-    warn: no
   ignore_errors: true
 
 - name: Install foonts
+  become_user: "{{ USER }}"
   shell: fc-cache -f -v
 
 - name: cp .zshrc
@@ -54,8 +47,6 @@
 - name: Add powerlevel9k
   shell: git clone https://github.com/bhilburn/powerlevel9k.git /home/klst9498/.oh-my-zsh/custom/themes/powerlevel9k
   become_user: "{{ USER }}"
-  args:
-    warn: no
   ignore_errors: true
 
 - name: Git checkout powerlevel10k
@@ -79,12 +70,8 @@
 
 - name: Add fzf
   shell: git clone --depth 1 https://github.com/junegunn/fzf.git /home/klst9498/.fzf && /home/klst9498/.fzf/install --all
-  args:
-    warn: no
   ignore_errors: true
 
 - name: execute zsh
   shell: zsh
-  args:
-    warn: no
   ignore_errors: true
