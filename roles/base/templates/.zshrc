@@ -227,3 +227,4 @@ command -v tkn >/dev/null && . <(tkn completion zsh)
 command -v k3d >/dev/null && . <(k3d completion zsh)
 
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
+setxkbmap -layout de 
