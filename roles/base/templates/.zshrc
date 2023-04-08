@@ -89,7 +89,9 @@ plugins=(
     git-flow
     git-prompt
     git
+    history-sync
     kubectl
+    k3d
     last-working-dir
     terraform
     thefuck
@@ -97,9 +99,20 @@ plugins=(
     zsh-autosuggestions
     zsh-syntax-highlighting
     fzf
+    vault
  jira)
 
 #ZSH_TMUX_AUTOSTART="true" # see tmux plugin
+
+export GITHUB_TOKEN="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"
+export GITHUB_USER="klst9498"
+
+export ZSH_HISTORY_FILE_NAME=".zsh_history"
+export ZSH_HISTORY_FILE="${HOME}/${ZSH_HISTORY_FILE_NAME}"
+export ZSH_HISTORY_PROJ="${HOME}/.zsh_history_proj/zsh_history"
+export ZSH_HISTORY_FILE_ENC_NAME="zsh_history"
+export ZSH_HISTORY_FILE_ENC="${ZSH_HISTORY_PROJ}/${ZSH_HISTORY_FILE_ENC_NAME}"
+export ZSH_HISTORY_COMMIT_MSG="latest $(date)"
 
 
 source $ZSH/oh-my-zsh.sh
@@ -132,12 +145,18 @@ export KUBE_EDITOR="code -w"
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+alias kg="kubectl get"
+alias kgpo="kubectl get pods"
+alias kd="kubectl describe"
+alias kdpo="kubectl describe pods"
+alias krm="kubectl delete"
+alias krmf="kubectl delete -f"
 
 # make ctrl+p behave exactly like up (https://superuser.com/questions/583583/how-to-make-ctrlp-behave-exactly-like-up-arrow-in-zsh)
 bindkey "^P" up-line-or-beginning-search
 
-PATH=~/bin:$PATH
-
+#PATH=~/bin:$PATH
+PATH="/usr/local/go/bin:${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 
 lg()
 {
@@ -205,6 +224,6 @@ command -v velero >/dev/null && . <(velero completion zsh)
 command -v helm >/dev/null && . <(helm completion zsh)
 command -v kubectl >/dev/null && . <(kubectl completion zsh)
 command -v tkn >/dev/null && . <(tkn completion zsh)
-command -v k3d >/dev/null && . <(k3d completion bash)
+command -v k3d >/dev/null && . <(k3d completion zsh)
 
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
