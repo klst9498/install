@@ -1,4 +1,13 @@
+- hosts: all
+  vars_prompt:
 
+    - name: USER
+      prompt: What is your username?
+      private: false
+
+    - name: PWD
+      prompt: What is your password?
+      
 # tasks to complete before running roles
 - hosts: localhost
   tags: always
