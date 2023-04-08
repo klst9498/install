@@ -49,6 +49,11 @@
   become_user: "{{ USER }}"
   ignore_errors: true
 
+- name: Add powerlevel9k
+  shell: git clone https://github.com/dwaynebradley/k3d-oh-my-zsh-plugin.git ~/.oh-my-zsh/custom/plugins/k3d
+  become_user: "{{ USER }}"
+  ignore_errors: true
+
 - name: Git checkout powerlevel10k
   git:
     repo: 'https://github.com/romkatv/powerlevel10k.git'
