@@ -25,7 +25,7 @@
   - name: 'VirtualBox Guest Additions: installation'
     ansible.builtin.shell: mount /dev/sr1 /mnt && yes yes | /mnt/VBoxLinuxAdditions.run --nox11; true
     # ignore_errors: true
-    when: vbox_client_version.stdout != VBOX_HOST_VERSION
+    #when: vbox_client_version.stdout != VBOX_HOST_VERSION
 
 - name: 'GDM enabling automatic login'
   #  AutomaticLoginEnable = true
@@ -41,4 +41,4 @@
       path: /etc/gdm3/custom.conf
       section: daemon
       option: AutomaticLogin
-      value: "{{ USERNAME }}"
+      value: "{{ USER }}"
