@@ -5,6 +5,7 @@
       - flake8
       - git
       - tree
+      - firefox
       - "{{ PYTHON_FLAKE8_PACKAGE }}"
       - "{{ PYTHON_PACKAGE }}"
       - "{{ PYTHON_PIP_PACKAGE }}"
