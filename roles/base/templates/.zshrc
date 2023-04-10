@@ -206,6 +206,13 @@ helm completion zsh >| "$ZSH_CACHE_DIR/completions/_helm" &|[ -f ~/.kubectl_alia
 
 alias dotfiles='/usr/bin/git --git-dir=/home/klst9498/.dotfiles/ --work-tree=/home/klst9498'
 
+# Export Public GPG Key
+alias gpg-epub='gpg --output public.pgp --armor --export staudenmaier@web.de'
+
+# Export Secret Key
+alias gpg-epriv='gpg --output private.pgp --armor --export-secret-key staudenmaier@web.de'
+
+
 [ -f ~/.kubectl_aliases ] && source \
    <(cat ~/.kubectl_aliases | sed -r 's/(kubectl.*) --watch/watch \1/g')
 
