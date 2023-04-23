@@ -1,3 +1,13 @@
+
+- name: Add k9s
+  shell:  curl -Lo /tmp/k9s_Linux_x86_64.tar.gz https://github.com/derailed/k9s/releases/download/v0.24.1/k9s_Linux_x86_64.tar.gz
+
+- name: Extract k9s
+  archive:
+    path:  /tmp/k9s_Linux_x86_64.tar.gz
+    dest:  /usr/local/bin/k9s
+  become: true
+  
 - name: software | kubectl | install
   shell: curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
     

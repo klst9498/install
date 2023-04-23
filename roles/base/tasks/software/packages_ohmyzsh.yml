@@ -45,7 +45,7 @@
     mode: 0666
 
 - name: Add powerlevel9k
-  shell: git clone https://github.com/bhilburn/powerlevel9k.git /home/klst9498/.oh-my-zsh/custom/themes/powerlevel9k
+  shell: git clone https://github.com/bhilburn/powerlevel9k.git /home/{{ USER }}/.oh-my-zsh/custom/themes/powerlevel9k
   become_user: "{{ USER }}"
   ignore_errors: true
 
@@ -60,6 +60,7 @@
     dest:  /home/{{ USER }}/.oh-my-zsh/custom/themes/powerlevel10k
   ignore_errors: true
 
+
 - name: cp .p10k.zsh
   tags: settings,simone,sudo,system,users
   become_user: "{{ USER }}"
@@ -71,10 +72,21 @@
     mode: 0440
 
 - name: Execute the command in remote shell; stdout goes to the specified file on the remote
-  shell: echo 'source ~/powerlevel10k/powerlevel10k.zsh-theme' >>/home/klst9498/.zshrc
+  shell: echo 'source /home/{{ USER }}/.oh-my-zsh/custom/themes/powerlevel10k/powerlevel10k.zsh-theme' >> /home/{{ USER }}/.zshrc
 
 - name: Add fzf
-  shell: git clone --depth 1 https://github.com/junegunn/fzf.git /home/klst9498/.fzf && /home/klst9498/.fzf/install --all
+  shell: git clone --depth 1 https://github.com/junegunn/fzf.git /home/{{ USER }}/.fzf && /home/{{ USER }}/.fzf/install --all
+  ignore_errors: true
+
+- name: ensures /home/{{ USER }}/.oh-my-zsh/custom/plugins/history-sync exist 
+  file: 
+    path: /home/{{ USER }}/.oh-my-zsh/custom/plugins/history-sync
+    state: directory
+
+- name: copy history-sync
+  copy:
+    src: 'history-sync.plugin.zsh'
+    dest:  /home/{{ USER }}/.oh-my-zsh/custom/plugins/history-sync/history-sync.plugin.zsh
   ignore_errors: true
 
 - name: execute zsh

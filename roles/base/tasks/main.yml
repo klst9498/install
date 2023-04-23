@@ -4,16 +4,21 @@
 
 - block:
   - import_tasks: users/user.yml
-
+    tags: user
   # install software
   - import_tasks: software/repositories.yml
   - import_tasks: software/packages_development.yml
+    tags: development
   - import_tasks: software/packages_desktop.yml
+    tags: desktop
   - import_tasks: software/packages_kubernetes.yml
+    tags: k8s
   - import_tasks: software/packages_cleanup.yml
-  - import_tasks: software/packages_pip.yml
+    tags: cleanup
   - import_tasks: software/packages_utilities.yml
+    tags: utils
   - import_tasks: software/packages_ohmyzsh.yml
+    tags: omz
 
 
 
