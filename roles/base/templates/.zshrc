@@ -100,6 +100,9 @@ plugins=(
     zsh-syntax-highlighting
     fzf
     vault
+    sudo
+    web-search
+    z
  jira)
 
 #ZSH_TMUX_AUTOSTART="true" # see tmux plugin
@@ -151,6 +154,8 @@ alias kd="kubectl describe"
 alias kdpo="kubectl describe pods"
 alias krm="kubectl delete"
 alias krmf="kubectl delete -f"
+
+alias cdtmp="cd `mktemp -d`"
 
 # make ctrl+p behave exactly like up (https://superuser.com/questions/583583/how-to-make-ctrlp-behave-exactly-like-up-arrow-in-zsh)
 bindkey "^P" up-line-or-beginning-search
@@ -233,5 +238,16 @@ command -v kubectl >/dev/null && . <(kubectl completion zsh)
 command -v tkn >/dev/null && . <(tkn completion zsh)
 command -v k3d >/dev/null && . <(k3d completion zsh)
 
-export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
+export PATH="${KREW_ROOT:-$HOME/.krew}/bin:/home/klst9498/.local/bin:$PATH"
 setxkbmap -layout de 
+source /home/klst9498/.oh-my-zsh/custom/themes/powerlevel10k/powerlevel10k.zsh-theme
+
+
+K3D_FIX_DNS=1
+
+autoload -Uz compinit
+zstyle ':completion:*' menu select
+fpath+=~/.zfunc
+
+export PATH=$PATH:/usr/local/go/bin
+
