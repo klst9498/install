@@ -4,10 +4,10 @@ git ssh from local
 
 
 ## local deployment:
-
-PWD=$(mkpasswd --method=sha-512)
-clone repo and call ansible-playbook local.yml -e USER=klst9498 -e PWD=$PWD
-
+´´´
+clone repo 
+ansible-playbook local.yml 
+´´´
 
 
 ### todo
